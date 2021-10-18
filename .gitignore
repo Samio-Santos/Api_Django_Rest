@@ -1,0 +1,8 @@
+htmlcov/*
+midias_users/fotoPerfil/*
+.vscode/*
+.venv/*
+.coverage
+.coveragerc
+*archive.py
+__pycahce__/*
