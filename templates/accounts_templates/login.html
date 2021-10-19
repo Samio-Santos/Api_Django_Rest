@@ -31,9 +31,9 @@
       <form action="{% url 'login' %}" method="POST" name="form-login">
         {% csrf_token %}
         <fieldset class="container">
+          <img id="icon" src="{% static 'img/user.png' %}" alt="Login" />
           <div class="box">
-            <img id="icon" src="{% static 'img/user.png' %}" alt="Login" />
-            <h1>Log In</h1>
+            <h1>Conecte-se</h1>
             
             {% if notUser %}
               {% if messages %}
@@ -53,7 +53,6 @@
                 value="{{request.POST.user}}"
                 id="username"
                 placeholder="Email"
-           
                 required
               />
               {% if invalid %}
@@ -75,7 +74,6 @@
                 name="password"
                 id="password"
                 maxlength="45"
-           
                 placeholder="Password"
                 required
               />
@@ -106,10 +104,10 @@
             </div>
 
             <div class="login-bnt">
-              <button class="bnt" type="submit" name="enter">Entrar</button>
+              <button class="bnt" type="submit" name="enter">Conecte-se</button>
             </div>
 
-            <h5>Conecte-se com:</h5>
+            <h5>Ou use um terceiro:</h5>
             <div class="conect">
               <a href="{% url 'social:begin' 'github' %}">
                 <img src="{% static 'img/github.png' %}" alt="login-github" />

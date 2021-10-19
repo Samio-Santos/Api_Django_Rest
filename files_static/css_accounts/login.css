@@ -4,20 +4,16 @@ body {
   box-sizing: border-box;
   font-family: sans-serif;
   color: #fff;
-
-  background: url("../img/background-login.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: grey;
 }
 
 main {
   height: 100vh;
-  background-color: rgba(245, 245, 245, 0.575);
+  /* background-color: rgba(245, 245, 245, 0.575); */
 }
 
 .container {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +21,15 @@ main {
   flex-direction: column;
   border: none;
 }
+.box #icon {
+  position: relative;
+  left: 50%;
+  height: 3rem;
+}
 
 .box {
   width: 450px;
-  height: 81%;
+  height: 72%;
 
   font-size: 16px;
   padding: 40px 40px;
@@ -37,11 +38,6 @@ main {
   border-radius: 20px;
 }
 
-.box #icon {
-  position: relative;
-  left: 50%;
-  height: 3rem;
-}
 
 .box h1 {
   font-weight: 900;
@@ -135,7 +131,7 @@ main {
 }
 
 .box h5 {
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
   color: whitesmoke;
@@ -146,6 +142,7 @@ main {
   align-items: center;
   justify-content: center;
   margin-bottom: 2.2rem;
+  
 }
 
 .box .conect img {
