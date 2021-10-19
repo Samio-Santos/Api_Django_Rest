@@ -2,7 +2,7 @@ from django.db import models
 from categorias.models import Materia, Banca
 
 class Pergunta(models.Model):
-    texto = models.TextField(blank=True, null=True)
+    texto = models.TextField(blank=True, null=True, default=None)
     enunciado = models.TextField()
     alternativas_Multiplasescolhas = models.JSONField(
     default={
