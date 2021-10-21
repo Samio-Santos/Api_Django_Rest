@@ -31,8 +31,8 @@
       <form action="{% url 'login' %}" method="POST" name="form-login">
         {% csrf_token %}
         <fieldset class="container">
-          <img id="icon" src="{% static 'img/user.png' %}" alt="Login" />
           <div class="box">
+            <!-- <img id="icon" src="{% static 'img/api.png' %}" alt="Login" /> -->
             <h1>Conecte-se</h1>
             
             {% if notUser %}
@@ -107,17 +107,21 @@
               <button class="bnt" type="submit" name="enter">Conecte-se</button>
             </div>
 
-            <h5>Ou use um terceiro:</h5>
-            <div class="conect">
-              <a href="{% url 'social:begin' 'github' %}">
-                <img src="{% static 'img/github.png' %}" alt="login-github" />
-              </a>
-
-              <a href="{% url 'social:begin' 'google-oauth2' %}">
-                <img src="{% static 'img/google.png' %}" alt="login-google" />
-              </a>
-            </div>
           </div>
+
+          <div class="conect">
+            <a href="{% url 'social:begin' 'google-oauth2' %}">
+              <img src="{% static 'img/google.png' %}" alt="login-google" />
+              <b>Login com Google </b>
+            </a>
+          </div>
+          <div class="conect">
+            <a href="{% url 'social:begin' 'github' %}">
+              <img src="{% static 'img/github.png' %}" alt="login-github" />
+              <b>Login com GitHub</b>
+            </a>
+          </div>
+          
         </fieldset>
       </form>
       {% else %}

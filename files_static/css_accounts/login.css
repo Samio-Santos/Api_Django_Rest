@@ -3,13 +3,12 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: #fff;
-  background-color: grey;
+  color: black;
 }
 
 main {
   height: 100vh;
-  /* background-color: rgba(245, 245, 245, 0.575); */
+  background-color: #5d6a6d;
 }
 
 .container {
@@ -23,24 +22,28 @@ main {
 }
 .box #icon {
   position: relative;
-  left: 50%;
-  height: 3rem;
+  left: 40%;
+  bottom: 30px;
+  height: 5rem;
 }
 
 .box {
   width: 450px;
-  height: 72%;
+  height: 76%;
 
   font-size: 16px;
   padding: 40px 40px;
-  background: #434856e0;
+  background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  margin-top: 10rem;
 }
-
 
 .box h1 {
   font-weight: 900;
+  color: black;
+  font-weight: bolder;
 }
 
 .user {
@@ -60,7 +63,7 @@ main {
   border-bottom: 1px solid grey;
   outline: none;
   background: transparent;
-  color: #fff;
+  color: black;
   transition: 0.3s all;
 }
 
@@ -75,14 +78,14 @@ main {
 /* Cor de fundo do autocomplete */
 .user input:-webkit-autofill {
   border-bottom: 1px solid grey;
-  color: white;
-  -webkit-text-fill-color: #fff;
+  color: black;
+  -webkit-text-fill-color: black;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Cor do texto do autocomplete */
 .user input:-webkit-autofill {
-  -webkit-text-fill-color: #fff !important;
+  -webkit-text-fill-color: black !important;
 }
 
 .box .reset-password {
@@ -95,7 +98,8 @@ main {
 }
 
 .box .reset-password a {
-  color: whitesmoke;
+  color: black;
+  font-weight: bolder;
   transition: 0.5s;
 }
 
@@ -130,24 +134,41 @@ main {
   opacity: 2;
 }
 
-.box h5 {
-  margin-top: 30px;
+/* .box h5 {
+  margin-top: 60px;
   margin-bottom: 20px;
   text-align: center;
-  color: whitesmoke;
-}
+  color: black;
+  font-weight: bold;
+} */
 
-.box .conect {
+.conect {
+  width: 450px;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: white;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2.2rem;
-  
 }
 
-.box .conect img {
-  padding-left: 0.7rem;
+.conect img {
   height: 2rem;
+}
+
+.conect a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.conect a b {
+  text-align: center;
+  margin-left: 25%;
 }
 
 .container-logado {
@@ -217,11 +238,15 @@ main {
 @media only screen and (min-device-width: 260px) and (max-device-width: 640px) {
   .box {
     width: 350px;
-    height: 89%;
+    height: 75%;
   }
 
   .box .bnt {
     width: 70%;
+  }
+
+  .conect {
+    width: 350px;
   }
 
   .container-logado div button {
