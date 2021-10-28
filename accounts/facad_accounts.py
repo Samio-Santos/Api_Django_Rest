@@ -2,50 +2,43 @@ from django.core.validators import validate_email
 from django.contrib import messages
 from .models import CostumerUser
 
+
 def get_validacao_dados_register(**kwargs):
     request = kwargs.get('request')
     nome = kwargs.get('nome')
-    sobrenome = kwargs.get('sobrenome')
     email = kwargs.get('email')
     senha = kwargs.get('senha')
     capital = kwargs.get('capital')
     rsenha = kwargs.get('rsenha')
     lower = kwargs.get('lower')
     numeric = kwargs.get('numeric')
-    sexo = kwargs.get('sexo')
 
-
-    if not nome or not sobrenome or not email or not senha or not rsenha:
-        return messages.error(request, 'Nenhum campo pode ficar vázio')
-
+    if not nome or not email or not senha or not rsenha:
+        return messages.error(request, 'Nem um campo pode ficar em branco.')
     try:
         validate_email(email)
     except:
-        return messages.error(request, 'Email inválido')
+        return messages.warning(request, 'Email inválido')
 
     if not capital:
-        return messages.error(request, 'A senha dever conter pelo menos uma letra maiúscula.')
+        return messages.info(request, 'A senha dever conter pelo menos uma letra maiúscula.')
 
     if not lower:
-        return messages.error(request, 'A senha dever conter pelo menos uma letra minúscula.')
+        return messages.info(request, 'A senha dever conter pelo menos uma letra minúscula.')
 
     if not numeric:
-        return messages.error(request, 'A senha dever conter pelo menos um número.')
-
-    if not sexo:
-        return messages.error(request, 'O Campo "Sexo" não pode ficar vázio.')
+        return messages.info(request, 'A senha dever conter pelo menos um número.')
 
     if len(senha) < 8:
-        return messages.error(request, 'Senha muito curta! Senha precisa ter no minimo 8 caracteres.')
+        return messages.info(request, 'Senha muito curta! Senha precisa ter no minimo 8 caracteres.')
 
     if senha != rsenha:
-        return messages.error(request, 'Senhas não são iguais. Tente novamente!')
-        
-    if CostumerUser.objects.filter(email=email).exists():
-        return messages.error(request, 'Email já existe!')
-    
-    return nome, sobrenome, email, senha, rsenha, capital,lower, numeric, sexo
+        return messages.info(request, 'Senhas não são iguais. Tente novamente!')
 
+    if CostumerUser.objects.filter(email=email).exists():
+        return messages.warning(request, 'Email já existe!')
+
+    return nome, email, senha
 
 
 def get_resposta_certas_dashboard(respondida, portugues_certas, informatica_certas, logica_certas,  estatistica_certas, direito_certas, contabilidade_certas, criminologia_certas, data):
@@ -64,13 +57,13 @@ def get_resposta_certas_dashboard(respondida, portugues_certas, informatica_cert
 
     if respondida.materia == 'Direito':
         direito_certas.append(respondida)
-    
+
     if respondida.materia == 'Contabilidade':
         contabilidade_certas.append(respondida)
-    
+
     if respondida.materia == 'Criminologia':
         criminologia_certas.append(respondida)
-    
+
     data['portugues_certas'] = len(portugues_certas)
     data['informatica_certas'] = len(informatica_certas)
     data['logica_certas'] = len(logica_certas)
@@ -79,10 +72,9 @@ def get_resposta_certas_dashboard(respondida, portugues_certas, informatica_cert
     data['contabilidade_certas'] = len(contabilidade_certas)
     data['criminologia_certas'] = len(criminologia_certas)
 
-    
     return data
 
-    
+
 def get_resposta_erradas_dashboard(respondida, portugues_erradas, informatica_erradas, logica_erradas,  estatistica_erradas, direito_erradas, contabilidade_erradas, criminologia_erradas, data):
 
     if respondida.materia == 'Português':
@@ -99,10 +91,10 @@ def get_resposta_erradas_dashboard(respondida, portugues_erradas, informatica_er
 
     if respondida.materia == 'Direito':
         direito_erradas.append(respondida)
-    
+
     if respondida.materia == 'Contabilidade':
         contabilidade_erradas.append(respondida)
-    
+
     if respondida.materia == 'Criminologia':
         criminologia_erradas.append(respondida)
 

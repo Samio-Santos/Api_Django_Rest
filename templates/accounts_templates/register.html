@@ -23,26 +23,76 @@
         <fieldset class="container">
           <div class="box">
             <h1>Cadastro</h1>
-
-            <div class="user">
-              <label for="nome">Nome: </label><br />
-              <input type="text" name="nome" value="{{request.POST.nome}}" id="nome" />
-            </div>
-  
-            <div class="user">
-              <label for="email">E-mail:</label><br />
-              <input type="email" name="email" value="{{request.POST.email}}" id="email" />
-            </div>
             
             <div class="user">
-              <label for="password">Senha:</label><br />
+              <label for="nome" class="erro-label">Nome: </label><br />
+              <input type="text" name="nome" value="{{request.POST.nome}}" id="nome" />
+            </div>
+            {% if messages %}
+              {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                  <div class="{{ message.tags }}-error" role="alert">
+                    {{ message }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
+            <div class="user">
+              <label for="email" class="erro-label" id="erro-label">E-mail:</label><br />
+              <input type="email" name="email" value="{{request.POST.email}}" id="email" />
+            </div>
+            {% if messages %}
+              {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                  <div class="{{ message.tags }}-error" role="alert">
+                    {{ message }}
+                  </div>
+
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                  <div class="{{ message.tags }}-warning" role="alert">
+                    {{ message }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
+            <div class="user">
+              <label for="password" class="erro-label" id="senha">Senha:</label><br />
               <input type="password" name="password" id="id_new_password1" maxlength="48"/>
             </div>
-  
+            {% if messages %}
+              {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                  <div class="{{ message.tags }}-info" role="alert">
+                    {{ message }}
+                  </div>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                  <div class="{{ message.tags }}-error" role="alert">
+                    {{ message }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
             <div class="user">
-              <label for="Rsenha">Repetir senha:</label><br />
+              <label for="Rsenha" class="erro-label" id="senha1">Repetir senha:</label><br />
               <input type="password" name="Rsenha" id="id_new_password2" maxlength="48"/>
             </div>
+            {% if messages %}
+              {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                  <div class="{{ message.tags }}-info" role="alert">
+                    {{ message }}
+                  </div>
+
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                  <div class="{{ message.tags }}-error" role="alert">
+                    {{ message }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
 
             <div id="Valid-password">
               <h3>A senha deve conter o seguinte:</h3>

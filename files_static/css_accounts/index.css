@@ -1,0 +1,101 @@
+body {
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 1;
+  background-color: black;
+  font-family: sans-serif;
+}
+
+@media (min-width: 950px) {
+  body {
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "nav nav" "main main" "footer footer";
+    font-family: sans-serif;
+    background-color: #e3e5eb;
+  }
+
+  header {
+    grid-area: nav;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main .samy {
+    grid-area: main;
+
+    width: 70%;
+    height: 100vh;
+    text-align: justify;
+    background-color: white;
+    margin-top: 15px;
+
+    border-radius: 5px;
+  }
+
+  main .samy .box-api {
+    margin: 80px;
+  }
+
+  main .samy .box-api h1 {
+    font-size: 40px;
+  }
+
+  main .samy .box-api .key {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  main .samy .box-api .key #token {
+    position: relative;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: grey;
+    color: white;
+    font-weight: 800;
+    border: none;
+    outline: none;
+  }
+
+  main .samy .box-api .key #token,
+  main .samy .box-api .key div {
+    position: relative;
+    top: 20px;
+  }
+
+  /* main .samy .box-api .key div {
+    color: black;
+    position: relative;
+  } */
+
+  main .samy .box-api .key div #copy,
+  main .samy .box-api .key div #show-hide {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    cursor: pointer;
+    transition: 1s;
+    margin-left: 20px;
+  }
+
+  main .samy .box-api .key div #copy:hover,
+  main .samy .box-api .key div #show-hide:hover {
+    background-color: rgba(128, 128, 128, 0.445);
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}

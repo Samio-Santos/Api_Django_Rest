@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <title>Index</title>
+    <link rel="icon" href="{% static 'img/universidade.png' %}" />
+    <link rel="stylesheet" href="{% static 'css_accounts/menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css_accounts/index.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="{% url 'login' %}">
+          <h1>Perguntas API</h1>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="samy">
+        <div class="box-api">
+          <h1>API Key</h1>
+          <div class="key">
+            <input type="password" id="token" value="{{token}}" readonly >
+            <div>
+              <img
+                id="copy"
+                src="{% static 'img/file.png' %} "
+                alt="copy"
+                title="copy"
+                onclick="copyToken()"
+              />
+              <img
+                id="show-hide"
+                src="{% static 'img/escondido.png' %}"
+                alt="show/hide"
+                title="show/hide"
+                onclick="mostrToken()"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; | Desenvolvido por Samio Santos</p>
+    </footer>
+
+    <script src="{% static 'scripts/script.js' %}"></script>
+  </body>
+</html>

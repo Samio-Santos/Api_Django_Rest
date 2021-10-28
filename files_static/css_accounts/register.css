@@ -13,7 +13,7 @@ aside.sidebar div button {
 
   position: relative;
   left: 2%;
-  top: .5rem;
+  top: 0.5rem;
   margin-bottom: 1rem;
 
   border: none;
@@ -31,7 +31,6 @@ aside.sidebar div button {
 
 aside.sidebar div button:hover {
   background: rgba(0, 0, 0, 0.74);
-  
 }
 
 .container {
@@ -107,7 +106,6 @@ form button:hover {
   position: relative;
   padding: 20px;
   margin-top: 10px;
-
 }
 
 #Valid-password p {
@@ -137,6 +135,15 @@ form button:hover {
   content: "✖";
 }
 
+.alert-error-error,
+.alert-warning-warning,
+.alert-info-info {
+  color: #d11507;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  bottom: 1.5rem;
+}
 
 @media only screen and (min-device-width: 260px) and (max-device-width: 640px) {
   .box {
